@@ -33,7 +33,7 @@
                     Comparison of your threshold (Red) vs Age & Gender Population Norm (Blue).
                 </p>
                 <div style="text-align: center;">
-                    <canvas id="audiogramCanvas" width="600" height="300" style="max-width: 100%; height: auto; background: var(--surface-tertiary); border: 1px solid var(--hairline-light); border-radius: 4px;"></canvas>
+                    <canvas id="audiogramCanvas" width="600" height="300" style="max-width: 100%; height: auto; background: var(--surface); border: 1px solid var(--border); border-radius: 8px;"></canvas>
                 </div>
             </div>
             
@@ -66,16 +66,16 @@
                 </div>
                 
                 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-bottom: 1.5rem;">
-                    <div style="background: var(--surface-tertiary); padding: 1rem; border: 1px solid var(--hairline-light); border-radius: 4px;">
-                        <span style="font-size: 0.8rem; color: var(--text-tertiary); text-transform: uppercase;">Current Decline Pace</span>
-                        <div id="metric-pace" style="font-size: 1.5rem; font-weight: bold; color: var(--brand-primary); margin-top: 0.25rem;">-</div>
+                    <div style="background: var(--surface); padding: 1rem; border: 1px solid var(--border); border-radius: 8px;">
+                        <span style="font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase;">Current Decline Pace</span>
+                        <div id="metric-pace" style="font-size: 1.5rem; font-weight: bold; color: var(--primary); margin-top: 0.25rem;">-</div>
                     </div>
-                    <div style="background: var(--surface-tertiary); padding: 1rem; border: 1px solid var(--hairline-light); border-radius: 4px;">
-                        <span style="font-size: 0.8rem; color: var(--text-tertiary); text-transform: uppercase;">Moderate Loss (40 dB)</span>
+                    <div style="background: var(--surface); padding: 1rem; border: 1px solid var(--border); border-radius: 8px;">
+                        <span style="font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase;">Moderate Loss (40 dB)</span>
                         <div id="metric-moderate-age" style="font-size: 1.5rem; font-weight: bold; color: #ffaa00; margin-top: 0.25rem;">-</div>
                     </div>
-                    <div style="background: var(--surface-tertiary); padding: 1rem; border: 1px solid var(--hairline-light); border-radius: 4px;">
-                        <span style="font-size: 0.8rem; color: var(--text-tertiary); text-transform: uppercase;">Severe Loss (60 dB)</span>
+                    <div style="background: var(--surface); padding: 1rem; border: 1px solid var(--border); border-radius: 8px;">
+                        <span style="font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase;">Severe Loss (60 dB)</span>
                         <div id="metric-severe-age" style="font-size: 1.5rem; font-weight: bold; color: #ff3333; margin-top: 0.25rem;">-</div>
                     </div>
                 </div>
@@ -85,7 +85,7 @@
                     Red curve shows your projected hearing threshold trajectory over your lifetime vs Normal Population Aging (Blue).
                 </p>
                 <div style="text-align: center;">
-                    <canvas id="timelineCanvas" width="600" height="280" style="max-width: 100%; height: auto; background: var(--surface-tertiary); border: 1px solid var(--hairline-light); border-radius: 4px;"></canvas>
+                    <canvas id="timelineCanvas" width="600" height="280" style="max-width: 100%; height: auto; background: var(--surface); border: 1px solid var(--border); border-radius: 8px;"></canvas>
                 </div>
             </div>
             
@@ -101,7 +101,7 @@
             
             <div style="text-align: center; margin-top: 2rem;">
                 <a href="predict.html"><button>Retake Test</button></a>
-                <a href="calibration.html" style="margin-left: 1rem;"><button style="background: var(--surface-tertiary);">Recalibrate</button></a>
+                <a href="calibration.html" style="margin-left: 1rem;"><button class="secondary">Recalibrate</button></a>
             </div>
         </div>
         
