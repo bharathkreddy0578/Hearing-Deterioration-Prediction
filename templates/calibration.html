@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calibration - Hearing Deterioration Prediction</title>
+    <link rel="stylesheet" href="static/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Device Calibration</h1>
+            <p class="text-center">We'll play tones at various volume levels and measure actual loudness to create a calibration chart for your device.</p>
+        </header>
+        
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="calibration.html" class="active">Calibration</a>
+            <a href="predict.html">Hearing Test</a>
+            <a href="result.html">Results</a>
+            <a href="about.html">About</a>
+        </nav>
+        
+        <section class="card">
+            <h4>Calibration Setup</h4>
+            <p id="calibration-status">Click "Start Calibration" to begin audio levels measurement. Please grant microphone access when prompted.</p>
+            <div style="margin-top: 1rem;">
+                <button onclick="initCalibration()">Start Calibration</button>
+            </div>
+        </section>
+        
+        <section class="card" id="calibration-progress" style="display: none;">
+            <h4>Progress</h4>
+            <p>Progress: <span id="progress-text">0%</span></p>
+            <progress id="progress-bar" value="0" max="100"></progress>
+        </section>
+        
+        <section class="card" id="calibration-results" style="display: none;">
+            <h4>Calibration Complete!</h4>
+            <p>Your device's volume-to-dB calibration chart has been created.</p>
+            <a href="predict.html"><button>Start Hearing Test</button></a>
+        </section>
+        
+        <div id="error-message" style="display: none;"></div>
+    </div>
+    
+    <script src="static/js/calibration.js"></script>
+</body>
+</html>

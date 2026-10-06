@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hearing Results - Hearing Deterioration Prediction</title>
+    <link rel="stylesheet" href="static/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Hearing Test Results</h1>
+            <p class="text-center">Detailed comparison of your hearing thresholds against normative population data (ISO 7029 / NHANES).</p>
+        </header>
+        
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="calibration.html">Calibration</a>
+            <a href="predict.html">Hearing Test</a>
+            <a href="result.html">Results</a>
+            <a href="about.html">About</a>
+        </nav>
+        
+        <div id="results-container" style="display: none;">
+            <div class="card">
+                <h4>Test Profile</h4>
+                <p><strong>Age:</strong> <span id="result-age"></span> | <strong>Gender:</strong> <span id="result-gender"></span> | <strong>Date:</strong> <span id="result-date"></span></p>
+            </div>
+            
+            <div class="card">
+                <h4>Visual Audiogram Graph</h4>
+                <p class="text-secondary" style="font-size: 0.85rem; margin-bottom: 1rem;">
+                    Comparison of your threshold (Red) vs Age & Gender Population Norm (Blue).
+                </p>
+                <div style="text-align: center;">
+                    <canvas id="audiogramCanvas" width="600" height="300" style="max-width: 100%; height: auto; background: var(--surface-tertiary); border: 1px solid var(--hairline-light); border-radius: 4px;"></canvas>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h4>Threshold Comparison (dB HL)</h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Frequency</th>
+                            <th>Your Threshold</th>
+                            <th>Age/Gender Norm</th>
+                            <th>Gap</th>
+                            <th>Risk Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="results-table-body"></tbody>
+                </table>
+            </div>
+            
+            <div class="card">
+                <h4>Risk Classification</h4>
+                <div id="overall-risk" class="risk-badge" style="padding: 1rem; font-size: 1.1rem; border-radius: 4px;"></div>
+            </div>
+            
+            <!-- Future Deterioration & Age Loss Prediction Card -->
+            <div class="card" id="prediction-card">
+                <h4 style="color: var(--warning);">🔮 Future Hearing Loss Prediction</h4>
+                <div id="prediction-banner" class="risk-badge" style="margin-bottom: 1.5rem; font-size: 1.05rem;">
+                    Calculating future progression model...
+                </div>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-bottom: 1.5rem;">
+                    <div style="background: var(--surface-tertiary); padding: 1rem; border: 1px solid var(--hairline-light); border-radius: 4px;">
+                        <span style="font-size: 0.8rem; color: var(--text-tertiary); text-transform: uppercase;">Current Decline Pace</span>
+                        <div id="metric-pace" style="font-size: 1.5rem; font-weight: bold; color: var(--brand-primary); margin-top: 0.25rem;">-</div>
+                    </div>
+                    <div style="background: var(--surface-tertiary); padding: 1rem; border: 1px solid var(--hairline-light); border-radius: 4px;">
+                        <span style="font-size: 0.8rem; color: var(--text-tertiary); text-transform: uppercase;">Moderate Loss (40 dB)</span>
+                        <div id="metric-moderate-age" style="font-size: 1.5rem; font-weight: bold; color: #ffaa00; margin-top: 0.25rem;">-</div>
+                    </div>
+                    <div style="background: var(--surface-tertiary); padding: 1rem; border: 1px solid var(--hairline-light); border-radius: 4px;">
+                        <span style="font-size: 0.8rem; color: var(--text-tertiary); text-transform: uppercase;">Severe Loss (60 dB)</span>
+                        <div id="metric-severe-age" style="font-size: 1.5rem; font-weight: bold; color: #ff3333; margin-top: 0.25rem;">-</div>
+                    </div>
+                </div>
+
+                <h5>Age Deterioration Timeline Trajectory (Age 20 - 80)</h5>
+                <p class="text-secondary" style="font-size: 0.85rem; margin-bottom: 1rem;">
+                    Red curve shows your projected hearing threshold trajectory over your lifetime vs Normal Population Aging (Blue).
+                </p>
+                <div style="text-align: center;">
+                    <canvas id="timelineCanvas" width="600" height="280" style="max-width: 100%; height: auto; background: var(--surface-tertiary); border: 1px solid var(--hairline-light); border-radius: 4px;"></canvas>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h4>Trend Analysis</h4>
+                <p id="trend-analysis"></p>
+            </div>
+            
+            <div class="card">
+                <h4>Recommendations & Next Steps</h4>
+                <div id="recommendations"></div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 2rem;">
+                <a href="predict.html"><button>Retake Test</button></a>
+                <a href="calibration.html" style="margin-left: 1rem;"><button style="background: var(--surface-tertiary);">Recalibrate</button></a>
+            </div>
+        </div>
+        
+        <div id="error-message" style="display: none;" class="card"></div>
+    </div>
+    
+    <script src="static/js/results.js"></script>
+</body>
+</html>

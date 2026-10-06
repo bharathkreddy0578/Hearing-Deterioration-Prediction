@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hearing Test - Hearing Deterioration Prediction</title>
+    <link rel="stylesheet" href="static/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Hearing Test</h1>
+            <p class="text-center">Pure-tone audiometry threshold test at 500 Hz, 1000 Hz, 4000 Hz, and 8000 Hz frequencies.</p>
+        </header>
+        
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="calibration.html">Calibration</a>
+            <a href="predict.html" class="active">Hearing Test</a>
+            <a href="result.html">Results</a>
+            <a href="about.html">About</a>
+        </nav>
+        
+        <section class="card">
+            <h4>Test Setup</h4>
+            <label>Age: <input type="number" id="user-age" value="25" min="1" max="120" style="width: 100px;"></label>
+            <label style="margin-top: 1rem;">Gender: 
+                <select id="user-gender">
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                </select>
+            </label>
+        </section>
+        
+        <section class="card" id="test-instructions">
+            <h4>How the Test Works</h4>
+            <p>1. The test will start from <strong>complete silence (-70 dB HL)</strong> and gradually increase the sound signal.</p>
+            <p>2. Listen carefully for <strong>3 short pulsed beeps</strong> at each frequency step.</p>
+            <p>3. As soon as you hear the beeps, immediately click <strong>"I Hear It"</strong>.</p>
+            <p>4. The test evaluates low, mid, high, and very high (8000 Hz) pitches to measure age-related sensitivity.</p>
+            <p>5. Please use headphones in a quiet room for best accuracy.</p>
+            <button onclick="startHearingTest()" style="margin-top: 1rem;">Start Hearing Test</button>
+        </section>
+        
+        <section class="card" id="test-active" style="display: none;">
+            <h4 id="current-frequency-label">Current Frequency: 500 Hz</h4>
+            <p id="test-status">Playing tone...</p>
+            <p id="test-progress">Volume: 50%</p>
+            <progress id="volume-bar" value="50" max="100"></progress>
+            <div style="margin-top: 1rem;">
+                <button onclick="heardTone()">I Hear It</button>
+                <button onclick="cantHearTone()">Can't Hear</button>
+            </div>
+        </section>
+        
+        <section class="card" id="test-complete" style="display: none;">
+            <h4>Test Complete!</h4>
+            <p id="test-results-summary"></p>
+            <a href="result.html"><button>View Results</button></a>
+        </section>
+        
+        <div id="error-message" style="display: none;"></div>
+    </div>
+    
+    <script src="static/js/hearing-test.js"></script>
+</body>
+</html>
