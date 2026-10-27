@@ -1,25 +1,67 @@
 # Hearing Deterioration Prediction
 
-## Overview
-An educational web application that predicts early signs of hearing deterioration by testing a user's hearing capacity and comparing it against standard, research-based hearing data.
+A web-based hearing health screening tool that measures hearing thresholds using calibrated audio testing and compares results against age/gender normative data (ISO 7029 / NHANES) to predict early signs of hearing deterioration.
 
 ## Features
-- **Device Calibration**: Creates a custom volume-to-dB chart using microphone feedback
-- **Hearing Test**: Tests hearing thresholds at 500Hz, 1000Hz, and 4000Hz frequencies
-- **Normative Comparison**: Compares user thresholds against ISO 7029, NHANES, and KNHANES data
-- **Risk Classification**: Ranks hearing health as Normal / Mild Concern / Possible Deterioration
-- **Trend Tracking**: Shows hearing stability over time with repeated testing
+- **Device Calibration**: Uses your device microphone to measure actual sound output (dB SPL) across volume levels, creating a personalized volume-to-dB calibration chart.
+- **Clinical Hearing Test**: Pure-tone audiometry at 500 Hz, 1000 Hz, 4000 Hz, and 8000 Hz using pulsed tones.
+- **Risk Classification**: Compares your thresholds to age/gender norms and classifies risk (Normal / Mild Concern / Possible Deterioration / Significant Concern).
+- **Longitudinal Tracking**: Stores test history in your browser to track hearing changes over time.
+- **Future Deterioration Prediction**: Projects hearing loss trajectory and estimates age of moderate/severe loss.
 
-## Technology Stack
-- Frontend: HTML5, CSS3, JavaScript (Web Audio API)
-- Backend: Flask (Python)
-- Data: JSON normative hearing thresholds
+## Tech Stack
+- **Backend**: Python Flask
+- **Frontend**: HTML5, CSS3, JavaScript (Web Audio API)
+- **Design**: Ferrari-inspired luxury theme (near-black canvas, Rosso Corsa accents)
 
 ## How to Run
-1. Install Python 3.x
-2. Install dependencies: `pip install -r requirements.txt`
-3. Run the app: `python app.py`
-4. Open http://localhost:5000 in your browser
 
-## Disclaimer
-This is an academic/research project for educational purposes only. It is not a medical diagnostic tool. Consult an audiologist for clinical assessment.
+### 1. Navigate to project folder
+```bash
+cd "/Users/suhassureshbabu/Downloads/Zen/project /hearing-deterioration-prediction"
+```
+
+### 2. Create and activate virtual environment
+```bash
+python3 -m venv venv
+source venv/bin/activate
+```
+*(On Windows, use: `venv\Scripts\activate`)*
+
+### 3. Install dependencies
+```bash
+pip install -r requirements.txt
+```
+
+### 4. Run the app
+```bash
+python3 app.py
+```
+
+### 5. Open in browser
+Visit: `http://127.0.0.1:5001`
+
+## Important Notes
+- **Microphone permission**: Required for calibration. Enable it in System Settings → Privacy & Security → Microphone.
+- **Educational tool only**: Not a medical diagnostic tool. Consult an audiologist for clinical assessment.
+- **Data privacy**: All test data stays in your browser (localStorage). Nothing is uploaded to a server.
+
+## File Structure
+```
+hearing-deterioration-prediction/
+├── app.py
+├── requirements.txt
+├── README.md
+├── .gitignore
+├── data/
+│   └── normative_data.json
+├── static/
+│   ├── css/
+│   └── js/
+└── templates/
+    ├── index.html
+    ├── calibration.html
+    ├── predict.html
+    ├── result.html
+    └── about.html
+```

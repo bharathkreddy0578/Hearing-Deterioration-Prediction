@@ -1,106 +1,241 @@
-/* Hearing Deterioration Prediction - Original Stylesheet */
+/* Hearing Deterioration Prediction - Ferrari Design Theme */
+/* Based on ferrari-DESIGN.md specifications */
 
 :root {
-    --primary: #2563eb;
-    --primary-hover: #1d4ed8;
-    --bg: #0f172a;
-    --surface: #1e293b;
-    --border: #334155;
-    --text: #f1f5f9;
-    --text-muted: #94a3b8;
-    --success: #22c55e;
-    --warning: #f59e0b;
-    --error: #ef4444;
+    /* Ferrari Color Palette */
+    --bg: #181818; /* near-black canvas */
+    --surface: #202020; /* slightly elevated surface */
+    --surface-elevated: #282828; /* more elevated */
+    --border: #303030; /* hairline equivalent */
+    --border-light: #404040; /* lighter border for dividers */
+    --text: #ffffff; /* pure white */
+    --text-muted: #cccccc; /* muted text */
+    --text-body: #e0e0e0; /* body text */
+    
+    /* Ferrari Primary - Rosso Corsa */
+    --primary: #da291c; /* Rosso Corsa */
+    --primary-active: #b22518; /* darker active state */
+    --primary-hover: #e63325; /* lighter hover state */
+    
+    /* Semantic Colors (adapted to Ferrari palette) */
+    --success: #8bc34a; /* light green for success */
+    --warning: #ffc107; /* amber for warning */
+    --error: #f44336; /* red for error */
+    --info: #2196f3; /* blue for info */
+    
+    /* Accent Colors */
+    --accent-yellow: #ffeb3b; /* Ferrari yellow accent */
+    --accent-yellow-hypersail: #fdd835; /* hypersail yellow */
 }
 
+/* 8px Spacing System Tokens */
+:root {
+    /* Space tokens */
+    --space-xxxs: 4px;
+    --space-xxs: 8px;
+    --space-xs: 16px;
+    --space-sm: 24px;
+    --space-md: 32px;
+    --space-lg: 48px;
+    --space-xl: 64px;
+    --space-xxl: 96px;
+    --space-super: 128px;
+    
+    /* Font sizes (converted from px to rem for scalability, base 16px) */
+    --font-display-mega: 5rem; /* 80px */
+    --font-display-xl: 3.5rem; /* 56px */
+    --font-display-lg: 2.25rem; /* 36px */
+    --font-display-md: 1.625rem; /* 26px */
+    --font-title-md: 1.125rem; /* 18px */
+    --font-title-sm: 1rem; /* 16px */
+    --font-body-md: 0.875rem; /* 14px */
+    --font-body-sm: 0.8125rem; /* 13px */
+    --font-caption: 0.75rem; /* 12px */
+    --font-caption-uppercase: 0.6875rem; /* 11px */
+    --font-button: 0.875rem; /* 14px */
+    --font-nav-link: 0.8125rem; /* 13px */
+    --font-number-display: 5rem; /* 80px */
+    
+    /* Font weights */
+    --weight-display: 500;
+    --weight-body: 400;
+    
+    /* Line heights (unitless multipliers) */
+    --leading-display: 1.1;
+    --leading-body: 1.4;
+    --leading-caption: 1.3;
+    
+    /* Letter spacing (em units) */
+    --tracking-display-mega: -0.1rem; /* -1.6px at 80px */
+    --tracking-display-xl: -0.08rem; /* -1.12px at 56px */
+    --tracking-display-lg: -0.02rem; /* -0.36px at 36px */
+    --tracking-display-md: 0.012rem; /* 0.195px at 26px */
+    --tracking-title-md: 0; /* 0px */
+    --tracking-title-sm: 0.005rem; /* 0.08px at 16px */
+    --tracking-body-md: 0; /* 0px */
+    --tracking-body-sm: 0; /* 0px */
+    --tracking-caption: 0; /* 0px */
+    --tracking-caption-uppercase: 0.069rem; /* 1.1px at 11px */
+    --tracking-button: 0.088rem; /* 1.4px at 14px */
+    --tracking-nav-link: 0.041rem; /* 0.65px at 13px */
+    --tracking-number-display: -0.1rem; /* -1.6px at 80px */
+    
+    /* Border radius scale */
+    --radius-none: 0px;
+    --radius-xs: 2px;
+    --radius-sm: 4px;
+    --radius-md: 6px;
+    --radius-lg: 8px;
+    --radius-xl: 12px;
+    --radius-full: 9999px;
+}
+
+/* Typography - Font Family */
+html {
+    font-size: 16px; /* base for rem calculations */
+}
+
+body {
+    font-family: 'FerrariSans', 'Segoe UI', system-ui, -apple-system, 'BlinkMacSystemFont', sans-serif;
+    font-weight: var(--weight-body);
+    line-height: var(--leading-body);
+    color: var(--text-body);
+    background-color: var(--bg);
+    font-size: var(--font-body-md); /* 14px base */
+}
+
+/* Container */
+.container {
+    max-width: 1200px; /* wider for cinematic feel */
+    margin: 0 auto;
+    padding: var(--space-lg) var(--space-md); /* 32px horizontal, 48px vertical */
+    box-sizing: border-box;
+}
+
+/* Reset */
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
-body {
-    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-    font-size: 16px;
-    line-height: 1.6;
-    color: var(--text);
-    background-color: var(--bg);
-}
-
-.container {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 2rem 1.5rem;
-}
-
-/* Typography */
+/* Typography Elements */
 h1, h2, h3, h4, h5, h6 {
-    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-    line-height: 1.3;
+    font-family: 'FerrariSans', 'Segoe UI', system-ui, -apple-system, sans-serif;
+    font-weight: var(--weight-display);
+    line-height: var(--leading-display);
     color: var(--text);
+    margin-bottom: var(--space-xs);
+    letter-spacing: var(--tracking-display-md);
 }
 
-h1 { font-size: 2rem; font-weight: 700; margin-bottom: 1rem; }
-h2 { font-size: 1.6rem; font-weight: 600; margin-bottom: 0.75rem; }
-h3 { font-size: 1.3rem; font-weight: 600; margin-bottom: 0.5rem; }
-h4 { font-size: 1.1rem; font-weight: 600; margin-bottom: 0.5rem; }
+h1 { 
+    font-size: var(--font-display-xl); 
+    letter-spacing: var(--tracking-display-xl);
+}
+
+h2 { 
+    font-size: var(--font-display-lg); 
+    letter-spacing: var(--tracking-display-lg);
+}
+
+h3 { 
+    font-size: var(--font-display-md); 
+    letter-spacing: var(--tracking-display-md);
+}
+
+h4 { 
+    font-size: var(--font-title-md); 
+    letter-spacing: var(--tracking-title-md);
+}
+
+h5 { 
+    font-size: var(--font-title-sm); 
+    letter-spacing: var(--tracking-title-sm);
+}
+
+h6 { 
+    font-size: var(--font-body-md); 
+    letter-spacing: var(--tracking-body-md);
+}
 
 p {
-    color: var(--text-muted);
-    margin-bottom: 0.75rem;
+    color: var(--text-body);
+    margin-bottom: var(--space-xs);
+    font-size: var(--font-body-md);
+    line-height: var(--leading-body);
 }
 
 .text-center { text-align: center; }
 
-/* Navigation */
+/* Navigation - Ferrari Spec */
 nav {
     display: flex;
-    gap: 0.5rem;
+    gap: var(--space-xxs); /* 8px */
     flex-wrap: wrap;
-    margin-bottom: 2rem;
-    padding-bottom: 1rem;
-    border-bottom: 1px solid var(--border);
+    margin-bottom: var(--space-lg); /* 48px */
+    padding-bottom: var(--space-xxs); /* 8px */
+    border-bottom: 1px solid var(--border-light);
+    min-height: 64px; /* Ferrari spec */
+    align-items: center;
 }
 
 nav a {
     color: var(--text-muted);
     text-decoration: none;
-    font-size: 0.9rem;
-    font-weight: 500;
-    padding: 0.4rem 0.9rem;
-    border-radius: 6px;
+    font-family: 'FerrariSans', 'Segoe UI', system-ui, -apple-system, sans-serif;
+    font-weight: var(--weight-body);
+    font-size: var(--font-nav-link); /* 13px */
+    line-height: var(--leading-body);
+    letter-spacing: var(--tracking-nav-link);
+    text-transform: uppercase;
+    padding: calc(var(--space-xxs) * 0.5) calc(var(--space-xs) * 0.5); /* 4px 8px */
+    border-radius: var(--radius-none);
     transition: all 0.2s ease;
+    white-space: nowrap;
 }
 
 nav a:hover, nav a.active {
     background: var(--primary);
-    color: #fff;
+    color: var(--text);
 }
 
-/* Cards */
+/* Cards - Ferrari Spec */
 .card {
     background: var(--surface);
     border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 1.5rem;
-    margin-bottom: 1.5rem;
+    border-radius: var(--radius-md); /* 6px */
+    padding: var(--space-md); /* 32px */
+    margin-bottom: var(--space-md); /* 32px */
+    position: relative;
+    overflow: hidden;
 }
 
-/* Buttons */
+/* Elevated cards for depth */
+.card.elevated {
+    background: var(--surface-elevated);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Buttons - Ferrari Spec */
 button, .btn-primary {
     display: inline-flex;
     align-items: center;
-    justify-content: center;
+    justify-center;
     background: var(--primary);
-    color: #fff;
+    color: var(--text);
     border: none;
-    padding: 0.6rem 1.4rem;
-    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-    font-size: 0.95rem;
-    font-weight: 500;
-    border-radius: 8px;
+    padding: calc(var(--space-xs) - 2px) calc(var(--space-sm) + 0px); /* 14px 32px */
+    font-family: 'FerrariSans', 'Segoe UI', system-ui, -apple-system, sans-serif;
+    font-weight: var(--weight-body);
+    font-size: var(--font-button); /* 14px */
+    line-height: var(--leading-body);
+    letter-spacing: var(--tracking-button);
+    text-transform: uppercase;
+    border-radius: var(--radius-md); /* 6px */
     cursor: pointer;
     transition: background 0.2s ease, transform 0.1s ease;
+    height: 48px; /* Ferrari spec */
 }
 
 button:hover, .btn-primary:hover {
@@ -108,6 +243,12 @@ button:hover, .btn-primary:hover {
     transform: translateY(-1px);
 }
 
+button:active, .btn-primary:active {
+    background: var(--primary-active);
+    transform: translateY(0);
+}
+
+/* Button Variants */
 button.secondary, .btn-secondary {
     background: transparent;
     color: var(--text);
@@ -116,124 +257,495 @@ button.secondary, .btn-secondary {
 
 button.secondary:hover, .btn-secondary:hover {
     background: var(--surface);
+    color: var(--text);
 }
 
-/* Form Inputs */
-input[type="number"], input[type="text"], select {
+button.tertiary, .btn-tertiary {
+    background: transparent;
+    color: var(--text-muted);
+    border: none;
+    padding: 0;
+}
+
+button.tertiary:hover, .btn-tertiary:hover {
+    color: var(--text);
+    text-decoration: underline;
+}
+
+/* Outline Buttons */
+button.outline, .btn-outline {
+    background: transparent;
+    color: var(--primary);
+    border: 2px solid var(--primary);
+}
+
+button.outline:hover, .btn-outline:hover {
+    background: var(--primary);
+    color: var(--text);
+}
+
+/* Form Inputs - Ferrari Spec */
+input[type="number"], 
+input[type="text"], 
+input[type="email"],
+select,
+textarea {
     background: var(--bg);
     border: 1px solid var(--border);
     color: var(--text);
-    padding: 0.6rem 0.9rem;
-    font-size: 0.95rem;
-    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-    border-radius: 6px;
-    transition: border-color 0.2s ease;
+    /* Ferrari spec: 14px 16px padding, 48px height */
+    padding: calc(var(--space-xs) - 2px) calc(var(--space-xs)); /* 14px 16px */
+    font-size: var(--font-body-md); /* 14px */
+    font-family: 'FerrariSans', 'Segoe UI', system-ui, -apple-system, sans-serif;
+    border-radius: var(--radius-md); /* 6px */
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    height: 48px; /* Ferrari spec */
     width: 100%;
+    box-sizing: border-box;
+    font-weight: var(--weight-body);
 }
 
-input[type="number"]:focus, input[type="text"]:focus, select:focus {
+input[type="number"]:focus, 
+input[type="text"]:focus, 
+input[type="email"]:focus,
+select:focus,
+textarea:focus {
     outline: none;
     border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(218, 41, 28, 0.25);
 }
 
 label {
     display: block;
-    font-size: 0.875rem;
-    font-weight: 500;
+    font-size: var(--font-body-sm); /* 13px */
+    font-weight: var(--weight-body);
     color: var(--text-muted);
-    margin-bottom: 0.4rem;
+    margin-bottom: var(--space-xxs); /* 8px */
+    letter-spacing: var(--tracking-body-sm);
+    text-transform: uppercase;
 }
 
 /* Tables */
 table {
     width: 100%;
-    border-collapse: collapse;
+    border-collapse: separate;
+    border-spacing: 0;
     background: var(--surface);
     border: 1px solid var(--border);
-    border-radius: 8px;
+    border-radius: var(--radius-md);
     overflow: hidden;
-    margin-bottom: 1.5rem;
+    margin-bottom: var(--space-md);
 }
 
 th, td {
-    padding: 0.75rem 1rem;
+    padding: var(--space-xxs) var(--space-xs); /* 8px 16px */
     text-align: left;
-    border-bottom: 1px solid var(--border);
+    border-bottom: 1px solid var(--border-light);
 }
 
 th {
     background: var(--bg);
     color: var(--text-muted);
-    font-size: 0.8rem;
-    font-weight: 600;
+    font-size: var(--font-body-sm); /* 13px */
+    font-weight: var(--weight-body);
     text-transform: uppercase;
-    letter-spacing: 0.5px;
+    letter-spacing: var(--tracking-body-sm);
 }
 
 td {
-    color: var(--text);
-    font-size: 0.95rem;
+    color: var(--text-body);
+    font-size: var(--font-body-md); /* 14px */
 }
 
-/* Progress */
+tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* Progress Bar */
 progress {
     width: 100%;
-    height: 8px;
-    border-radius: 4px;
+    height: 8px; /* Ferrari spec for thin progress */
+    border-radius: var(--radius-xs); /* 2px */
     background: var(--border);
     overflow: hidden;
     border: none;
+    appearance: none;
 }
 
 progress::-webkit-progress-bar {
     background: var(--border);
-    border-radius: 4px;
+    border-radius: var(--radius-xs);
 }
 
 progress::-webkit-progress-value {
     background: var(--primary);
-    border-radius: 4px;
+    border-radius: var(--radius-xs);
     transition: width 0.3s ease;
 }
 
-/* Risk Badges */
-.risk-normal { color: var(--success); font-weight: 600; }
-.risk-mild   { color: var(--warning); font-weight: 600; }
-.risk-warning { color: #f97316; font-weight: 600; }
-.risk-danger { color: var(--error); font-weight: 600; }
+progress::-moz-progress-bar {
+    background: var(--primary);
+    border-radius: var(--radius-xs);
+}
+
+/* Risk Badges - Ferrari Semantic */
+.risk-normal { color: var(--success); }
+.risk-mild   { color: var(--warning); }
+.risk-warning { color: #ff9800; } /* darker amber */
+.risk-danger { color: var(--error); }
 
 .risk-badge {
+    display: inline-flex;
+    align-items: center;
     background: var(--surface);
-    border-left: 4px solid var(--primary);
-    border-radius: 6px;
-    padding: 1rem 1.25rem;
-    margin-top: 0.5rem;
-    font-size: 0.95rem;
+    border-left: 4px solid var(--primary); /* Ferrari accent */
+    border-radius: var(--radius-md);
+    padding: var(--space-xs) var(--space-sm); /* 16px 24px */
+    margin-top: var(--space-xxs); /* 8px */
+    font-size: var(--font-body-md);
+    font-weight: var(--weight-body);
+    letter-spacing: var(--tracking-body-md);
 }
 
 .risk-badge.risk-normal  { border-left-color: var(--success); }
 .risk-badge.risk-mild    { border-left-color: var(--warning); }
-.risk-badge.risk-warning { border-left-color: #f97316; }
+.risk-badge.risk-warning { border-left-color: #ff9800; }
 .risk-badge.risk-danger  { border-left-color: var(--error); }
 
+/* Recommendations */
 #recommendations ul {
-    margin-top: 0.5rem;
-    padding-left: 1.25rem;
+    margin-top: var(--space-xxs);
+    padding-left: var(--space-sm);
 }
 
 #recommendations li {
-    margin-bottom: 0.4rem;
+    margin-bottom: var(--space-xxs);
     color: var(--text-muted);
-    font-size: 0.95rem;
+    font-size: var(--font-body-md);
+    line-height: var(--leading-body);
 }
 
-.spacing-md { margin: 1.5rem 0; }
+/* Hero Bands - Ferrari Spec */
+.hero-band {
+    padding: var(--space-xxl) 0; /* 96px vertical */
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
 
-/* Responsive */
+.hero-band.cinema {
+    background: var(--bg);
+    color: var(--text);
+}
+
+.hero-band.light {
+    background: var(--surface-elevated);
+    color: var(--text-body);
+}
+
+/* Feature Cards */
+.feature-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg); /* 8px */
+    padding: var(--space-lg); /* 48px */
+    text-align: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+/* Spec & Race Surfaces */
+.spec-cell {
+    background: transparent;
+    color: var(--text-body);
+    padding: var(--space-sm) 0; /* 24px vertical */
+    border-bottom: 1px solid var(--border-light);
+}
+
+.spec-cell:last-child {
+    border-bottom: none;
+}
+
+.race-position-cell {
+    background: transparent;
+    color: var(--primary);
+    font-weight: var(--weight-display);
+    text-align: center;
+    padding: var(--space-sm) 0;
+}
+
+/* Calendar Row */
+.race-calendar-row {
+    background: transparent;
+    color: var(--text-body);
+    padding: var(--space-xs) 0; /* 8px vertical */
+    border-bottom: 1px solid var(--border-light);
+}
+
+.race-calendar-row:last-child {
+    border-bottom: none;
+}
+
+/* Driver Card */
+.driver-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-sm); /* 24px */
+    text-align: center;
+}
+
+/* Input Variants */
+.text-input-on-dark {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    color: var(--text);
+    padding: calc(var(--space-xs) - 2px) calc(var(--space-xs)); /* 14px 16px */
+    font-size: var(--font-body-md);
+    border-radius: var(--radius-md);
+    height: 48px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.text-input-on-light {
+    background: var(--surface);
+    border: 1px solid var(--border-light);
+    color: var(--text-body);
+    padding: calc(var(--space-xs) - 2px) calc(var(--space-xs)); /* 14px 16px */
+    font-size: var(--font-body-md);
+    border-radius: var(--radius-md);
+    height: 48px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Badge Pill */
+.badge-pill {
+    display: inline-flex;
+    align-items: center;
+    background: var(--surface-elevated);
+    color: var(--text-body);
+    border-radius: var(--radius-full);
+    padding: calc(var(--space-xxxs) * 1) calc(var(--space-xxs) * 3); /* 4px 12px */
+    font-size: var(--font-body-sm);
+    font-weight: var(--weight-body);
+    letter-spacing: var(--tracking-body-sm);
+}
+
+/* CTA Band */
+.cta-band-dark {
+    background: var(--bg);
+    color: var(--text);
+    padding: var(--space-xxl) 0; /* 96px */
+    text-align: center;
+}
+
+/* Newsletter Input Band */
+.newsletter-input-band {
+    background: var(--surface-elevated);
+    border-radius: var(--radius-lg);
+    padding: var(--space-lg); /* 32px */
+}
+
+/* Footer */
+.footer-dark {
+    background: var(--bg);
+    color: var(--text-muted);
+    padding: var(--space-xl) var(--space-lg); /* 64px 48px */
+    text-align: center;
+    font-size: var(--font-body-sm);
+}
+
+.footer-link {
+    background: transparent;
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: var(--font-body-sm);
+    font-weight: var(--weight-body);
+    letter-spacing: var(--tracking-body-sm);
+    margin: 0 var(--space-xxs); /* 8px */
+}
+
+.footer-link:hover {
+    color: var(--text);
+    text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .container {
+        padding: var(--space-md) var(--space-sm); /* 32px 24px */
+    }
+    
+    h1 { font-size: var(--font-display-lg); }
+    h2 { font-size: var(--font-display-md); }
+    h3 { font-size: var(--font-title-md); }
+}
+
 @media (max-width: 768px) {
-    h1 { font-size: 1.5rem; }
-    h2 { font-size: 1.3rem; }
-    .container { padding: 1rem; }
-    nav { gap: 0.35rem; }
-    .card { padding: 1rem; }
+    .container {
+        padding: var(--space-sm) var(--space-xs); /* 24px 16px */
+    }
+    
+    h1 { font-size: var(--font-display-md); }
+    h2 { font-size: var(--font-title-md); }
+    h3 { font-size: var(--font-title-sm); }
+    
+    nav {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--space-xxs);
+        min-height: auto;
+        padding-bottom: var(--space-sm);
+    }
+    
+    nav a {
+        padding: var(--space-xxs) var(--space-sm); /* 8px 24px */
+        white-space: normal;
+    }
+    
+    .card {
+        padding: var(--space-sm); /* 24px */
+    }
+    
+    .hero-band {
+        padding: var(--space-lg) 0; /* 48px vertical */
+    }
+    
+    .feature-card {
+        padding: var(--space-sm); /* 24px */
+    }
+    
+    .footer-dark {
+        padding: var(--space-lg) var(--space-sm); /* 48px 24px */
+        text-align: left;
+    }
+    
+    .footer-link {
+        display: block;
+        margin: var(--space-xxs) 0; /* 8px 0 */
+    }
 }
+
+@media (max-width: 480px) {
+    h1 { font-size: var(--font-title-md); }
+    h2 { font-size: var(--font-title-sm); }
+    h3 { font-size: var(--font-body-md); }
+    
+    .container {
+        padding: var(--space-xs); /* 16px */
+    }
+    
+    .card {
+        padding: var(--space-xs); /* 16px */
+    }
+    
+    button, .btn-primary {
+        padding: var(--space-xxs) var(--space-sm); /* 8px 24px */
+        font-size: var(--font-body-sm); /* 13px */
+        height: 40px; /* smaller on mobile */
+    }
+    
+    input[type="number"], 
+    input[type="text"], 
+    select,
+    textarea {
+        padding: var(--space-xxs) var(--space-sm); /* 8px 24px */
+        font-size: var(--font-body-sm); /* 13px */
+        height: 40px;
+    }
+}
+
+/* Animation for interactive elements */
+button, 
+input, 
+select, 
+textarea,
+nav a,
+.feature-card {
+    transition-property: background-color, border-color, color, transform, box-shadow;
+    transition-duration: 0.2s;
+    transition-timing-function: ease-in-out;
+}
+
+/* Focus rings for accessibility */
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+nav a:focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+}
+
+/* Dark mode media query - already dark by default */
+@media (prefers-color-scheme: dark) {
+    /* Our design is already dark, so we enhance it */
+    :root {
+        --bg: #181818;
+        --surface: #202020;
+        --surface-elevated: #282828;
+    }
+}
+
+/* Print styles */
+@media print {
+    body {
+        background-color: white;
+        color: black;
+    }
+    
+    .card {
+        background: white;
+        border: 1px solid #ddd;
+        color: black;
+    }
+    
+    button {
+        display: none;
+    }
+    
+    nav {
+        display: none;
+    }
+}
+
+/* Prediction Card Specific Styles */
+.prediction-metrics {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--space-sm);
+    margin-bottom: var(--space-lg);
+}
+
+.prediction-metric {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: var(--space-sm);
+    text-align: center;
+}
+
+.prediction-metric span {
+    display: block;
+    font-size: var(--font-body-sm);
+    color: var(--text-muted);
+    text-transform: uppercase;
+    margin-bottom: var(--space-xxxs);
+}
+
+.prediction-metric div {
+    font-size: var(--font-display-lg);
+    font-weight: var(--weight-display);
+    margin-top: var(--space-xxs);
+}
+
+/* Specific metric colors */
+#metric-pace { color: var(--primary); }
+#metric-moderate-age { color: #ffaa00; }
+#metric-severe-age { color: #ff3333; }

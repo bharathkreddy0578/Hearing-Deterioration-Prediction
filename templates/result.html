@@ -60,32 +60,32 @@
             
             <!-- Future Deterioration & Age Loss Prediction Card -->
             <div class="card" id="prediction-card">
-                <h4 style="color: var(--warning);">🔮 Future Hearing Loss Prediction</h4>
-                <div id="prediction-banner" class="risk-badge" style="margin-bottom: 1.5rem; font-size: 1.05rem;">
+                <h4>🔮 Future Hearing Loss Prediction</h4>
+                <div id="prediction-banner" class="risk-badge">
                     Calculating future progression model...
                 </div>
                 
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-bottom: 1.5rem;">
-                    <div style="background: var(--surface); padding: 1rem; border: 1px solid var(--border); border-radius: 8px;">
-                        <span style="font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase;">Current Decline Pace</span>
-                        <div id="metric-pace" style="font-size: 1.5rem; font-weight: bold; color: var(--primary); margin-top: 0.25rem;">-</div>
+                <div class="prediction-metrics" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: var(--space-sm); margin-bottom: var(--space-lg);">
+                    <div class="prediction-metric">
+                        <span>Current Decline Pace</span>
+                        <div id="metric-pace">-</div>
                     </div>
-                    <div style="background: var(--surface); padding: 1rem; border: 1px solid var(--border); border-radius: 8px;">
-                        <span style="font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase;">Moderate Loss (40 dB)</span>
-                        <div id="metric-moderate-age" style="font-size: 1.5rem; font-weight: bold; color: #ffaa00; margin-top: 0.25rem;">-</div>
+                    <div class="prediction-metric">
+                        <span>Moderate Loss (40 dB)</span>
+                        <div id="metric-moderate-age">-</div>
                     </div>
-                    <div style="background: var(--surface); padding: 1rem; border: 1px solid var(--border); border-radius: 8px;">
-                        <span style="font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase;">Severe Loss (60 dB)</span>
-                        <div id="metric-severe-age" style="font-size: 1.5rem; font-weight: bold; color: #ff3333; margin-top: 0.25rem;">-</div>
+                    <div class="prediction-metric">
+                        <span>Severe Loss (60 dB)</span>
+                        <div id="metric-severe-age">-</div>
                     </div>
                 </div>
-
+                
                 <h5>Age Deterioration Timeline Trajectory (Age 20 - 80)</h5>
-                <p class="text-secondary" style="font-size: 0.85rem; margin-bottom: 1rem;">
+                <p class="text-secondary">
                     Red curve shows your projected hearing threshold trajectory over your lifetime vs Normal Population Aging (Blue).
                 </p>
                 <div style="text-align: center;">
-                    <canvas id="timelineCanvas" width="600" height="280" style="max-width: 100%; height: auto; background: var(--surface); border: 1px solid var(--border); border-radius: 8px;"></canvas>
+                    <canvas id="timelineCanvas" width="600" height="280"></canvas>
                 </div>
             </div>
             
